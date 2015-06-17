@@ -1,7 +1,21 @@
 Rails.application.routes.draw do
+
+
+
+
   root 'rolodex#index'
 
   delete 'contacts/:id' => 'rolodex#destroy', as: :delete_contact
+
+
+  get "admin" => 'admin#index', as: :admin
+  get 'admin/new' => 'admin#new', as: :new_contact
+  get 'admin/:id' => 'admin#show', as: :contact
+  post 'admin' => 'admin#create', as: :contacts
+  patch 'admin/:id' => 'admin#update'
+  delete 'admin/:id' => 'admin#destroy'
+  get 'admin/:id/edit' => 'admin#edit', as: :edit_contact
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

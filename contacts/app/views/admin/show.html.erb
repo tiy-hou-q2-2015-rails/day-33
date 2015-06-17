@@ -1,0 +1,29 @@
+<%= link_to "Admin", admin_path %>
+
+<div class="page-header">
+  <h1><%= @contact.full_name %></h1>
+</div>
+
+<div class="row">
+  <div class="text-right">
+    <p>
+      <%= link_to "Edit", edit_contact_path(id: @contact.id), class: "btn btn-default" %>
+      <%= link_to 'Delete', contact_path(id: @contact.id), class: "btn btn-danger", method: :delete, data: {confirm: "Ya Sure?"} %>
+    </p>
+
+  </div>
+
+</div>
+
+<dl>
+  <dt>First Name</dt>
+  <dd><%= @contact.first_name %></dd>
+  <dt>Last Name</dt>
+  <dd><%= @contact.last_name %></dd>
+  <dt>Email</dt>
+  <dd><%= @contact.email %></dd>
+  <dt>Phone</dt>
+  <dd><%= @contact.phone %></dd>
+  <dt>Company</dt>
+  <dd><%= @contact.company_name %></dd>
+</dl>
