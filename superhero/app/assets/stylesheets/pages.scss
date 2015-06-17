@@ -1,0 +1,16 @@
+.boom {
+  font-size: 5em;
+  color: red;
+}
+.active {
+  font-weight: bold;
+}
+
+ul#tabs {
+  list-style: none;
+  padding-left: 0;
+  li {
+    float: left;
+    margin: 1em;
+  }
+}

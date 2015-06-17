@@ -1,0 +1,53 @@
+<h3>Number of Contacts: <%= @contacts.total_count %> </h3>
+<table class="table table-striped table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>Last Name</th>
+      <th>First Name</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @contacts.each do |contact| %>
+      <tr data-contact-id="<%= contact.id %>">
+        <td><%= contact.last_name %></td>
+        <td><%= contact.first_name %></td>
+
+        <td>
+          <button type="button" class="btn btn-default" data-toggle="modal" data-target="#contact-detail-<%= contact.id %>">
+            View Detail
+          </button>
+
+          <%= link_to 'Delete', delete_contact_path(id: contact.id, page: params[:page]), method: :delete, data: {confirm: "Are you sure?"}, remote: true, class: 'btn btn-danger contact-delete' %>
+        </td>
+      </tr>
+
+      <!-- Modal -->
+      <div class="modal fade" id="contact-detail-<%= contact.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel"><%= contact.last_name %>, <%= contact.first_name %></h4>
+            </div>
+            <div class="modal-body">
+              <ul>
+                <li><strong>Phone</strong>: <%= contact.phone %></li>
+                <li><strong>Email</strong>: <%= contact.email %></li>
+                <li><strong>Company</strong>: <%= contact.company_name %></li>
+              </ul>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate @contacts %>

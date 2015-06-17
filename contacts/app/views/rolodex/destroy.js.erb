@@ -1,0 +1,8 @@
+// console.log("Yo there");
+// alert("Oh hai!");
+
+// $(this).closest("tr").hide("slow");
+
+$("tr[data-contact-id='<%= @contact.id %>']").hide("slow");
+
+$("#contacts").html("<%= j render partial: 'contacts' %>");
