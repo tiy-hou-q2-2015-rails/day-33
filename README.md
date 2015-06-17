@@ -8,6 +8,11 @@ Today
 * Rails remote delete
 * Rails remove render
 
+Links
+----
+
+* [JavaScript JSBin on events](http://jsbin.com/mukebamobu/edit?html,css,js,output)
+
 Assignment
 -----
 
