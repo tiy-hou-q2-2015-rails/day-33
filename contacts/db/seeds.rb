@@ -12,3 +12,6 @@ Faker::Config.locale = 'en-US'
 
 
 end
+
+User.create! admin: true, username: "jwo", password: "12345678", password_confirmation: "12345678"
+User.create! admin: false, username: "bob", password: "12345678", password_confirmation: "12345678"

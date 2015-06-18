@@ -3,6 +3,10 @@ Rails.application.routes.draw do
 
 
 
+  get 'sessions/new' => 'sessions#new', as: :sign_in
+  post 'sessions' => 'sessions#create', as: :auth
+  delete 'sessions' => 'sessions#destroy', as: :sign_out
+
   root 'rolodex#index'
 
   delete 'contacts/:id' => 'rolodex#destroy', as: :delete_contact

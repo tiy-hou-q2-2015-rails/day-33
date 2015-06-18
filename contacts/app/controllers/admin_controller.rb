@@ -1,4 +1,17 @@
 class AdminController < ApplicationController
+
+  before_action do
+    if @current_user.nil?
+      redirect_to sign_in_path
+    end
+  end
+
+  before_action do
+    unless @current_user.admin?
+      redirect_to root_path, alert: "Ya Aint Got the Access"
+    end
+  end
+
   def index
     @contacts = Contact.all.order("last_name")
   end
